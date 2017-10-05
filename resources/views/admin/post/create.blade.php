@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-          <label for="title">Featured image</label>
+          <label for="featured_img">Featured image</label>
           <input type="file" name="featured_img" class="form-control">
         </div>
 
