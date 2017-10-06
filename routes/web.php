@@ -42,7 +42,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/category', [
         'uses' => 'CategoryController@index',
-        'as' => 'category.list'
+        'as' => 'category.index'
+    ]);
+
+    Route::get('/category/edit/{id}', [
+        'uses' => 'CategoryController@edit',
+        'as' => 'category.edit'
+    ]);
+
+    Route::get('/category/delete/{id}', [
+        'uses' => 'CategoryController@delete',
+        'as' => 'category.delete'
     ]);
 
 });
