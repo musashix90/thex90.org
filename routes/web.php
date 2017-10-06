@@ -40,4 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         'as' => 'category.store'
     ]);
 
+    Route::get('/category', [
+        'uses' => 'CategoryController@index',
+        'as' => 'category.list'
+    ]);
+
 });
