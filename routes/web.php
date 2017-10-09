@@ -50,6 +50,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         'as' => 'post.restore'
     ]);
 
+    Route::get('/post/edit/{id}', [
+        'uses' => 'PostController@edit',
+        'as' => 'post.edit'
+    ]);
+
+    Route::post('/post/update/{id}', [
+        'uses' => 'PostController@update',
+        'as' => 'post.update'
+    ]);
+
     Route::get('/posts/trashed', [
         'uses' => 'PostController@trashed',
         'as' => 'post.trashed'
