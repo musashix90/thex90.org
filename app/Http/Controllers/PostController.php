@@ -60,6 +60,7 @@ class PostController extends Controller
             'featured_img' => $path,
             'content' => $request->content,
             'category_id' => $request->category_id,
+            'slug' => str_slug($request->title)
         ]);
 
         Session::flash('success', 'Post created successfully.');
