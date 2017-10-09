@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Post;
+use Session;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -41,6 +43,17 @@ class PostController extends Controller
             'content' => 'required',
             'category_id' => 'required'
         ]);
+
+        $path = $request->file('featured_img')->store('public/featured_img');
+
+        $post = Post::create([
+            'title' => $request->title,
+            'featured_img' => $path,
+            'content' => $request->content,
+            'category_id' => $request->category_id,
+        ]);
+
+        Session::flash('success', 'Post created successfully.');
     }
 
     /**
