@@ -108,6 +108,17 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        $post->forceDelete();
+
+        Session::flash('success', 'Post deleted permanently.');
+
+        return redirect()->back();
+    }
+
+    public function trash($id)
+    {
         $post = Post::find($id);
 
         $post->delete();

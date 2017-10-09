@@ -35,6 +35,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         'as' => 'post.store'
     ]);
 
+    Route::get('/post/trash/{id}', [
+        'uses' => 'PostController@trash',
+        'as' => 'post.trash'
+    ]);
+
+
     Route::get('/post/delete/{id}', [
         'uses' => 'PostController@destroy',
         'as' => 'post.delete'
