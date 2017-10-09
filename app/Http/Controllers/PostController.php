@@ -64,6 +64,8 @@ class PostController extends Controller
         ]);
 
         Session::flash('success', 'Post created successfully.');
+
+        return redirect()->route('post.index');
     }
 
     /**
@@ -133,5 +135,16 @@ class PostController extends Controller
         $posts = Post::onlyTrashed()->get();
 
         return view('admin.post.trashed')->with('posts', $posts);
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        $post->restore();
+
+        Session::flash('success', 'Post restored successfully.');
+
+        return redirect()->route('post.index');
     }
 }

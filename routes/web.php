@@ -40,10 +40,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         'as' => 'post.trash'
     ]);
 
-
     Route::get('/post/delete/{id}', [
         'uses' => 'PostController@destroy',
         'as' => 'post.delete'
+    ]);
+
+    Route::get('/post/restore/{id}', [
+        'uses' => 'PostController@restore',
+        'as' => 'post.restore'
     ]);
 
     Route::get('/posts/trashed', [
