@@ -35,6 +35,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         'as' => 'post.store'
     ]);
 
+    Route::get('/post/delete/{id}', [
+        'uses' => 'PostController@destroy',
+        'as' => 'post.delete'
+    ]);
+
     Route::get('/category/create', [
         'uses' => 'CategoryController@create',
         'as' => 'category.create'

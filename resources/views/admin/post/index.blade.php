@@ -17,8 +17,8 @@
                             <tr>
                                 <td><a href="{{ Storage::url($post->featured_img) }}"><img src="{{ Storage::url($post->featured_img) }}" width="90px" height="50px"></a></td>
                                 <td>{{ $post->title }}</td>
-                                <td><a href="/post/edit/{{ $post->id }}">Edit</a></td>
-                                <td><a href="/post/delete/{{ $post->id }}">Delete</a></td>
+                                <td><a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-info">Edit</a></td>
+                                <td><a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-danger">Trash</a></td>
                             </tr>
                         @endforeach
                 </tbody>
